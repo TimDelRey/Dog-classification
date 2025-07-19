@@ -1,0 +1,2 @@
+module DogSizesHelper
+end

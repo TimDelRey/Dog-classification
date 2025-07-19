@@ -1,0 +1,17 @@
+<%= form_with(model: dog_size) do |form| %>
+  <% if dog_size.errors.any? %>
+    <div style="color: red">
+      <h2><%= pluralize(dog_size.errors.count, "error") %> prohibited this dog_size from being saved:</h2>
+
+      <ul>
+        <% dog_size.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div>
+    <%= form.submit %>
+  </div>
+<% end %>
