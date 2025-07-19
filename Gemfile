@@ -14,7 +14,7 @@ gem 'importmap-rails'
 # Use SCSS for stylesheets
 gem "sass-rails", ">= 6"
 
-gem "jsbundling-rails"
+# gem "jsbundling-rails"
 
 # Hotwire Turbo for real-time features
 gem "turbo-rails"
@@ -29,6 +29,7 @@ gem "tzinfo-data", platforms: %i[ mingw mswin x64_mingw jruby ]
 gem 'bootsnap', require: false
 gem 'bigdecimal'
 gem 'mutex_m'
+gem 'slim-rails'
 
 group :development, :test do
   gem 'rubocop-rails-omakase', require: false

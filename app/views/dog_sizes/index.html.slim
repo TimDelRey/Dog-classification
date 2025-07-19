@@ -1,0 +1,19 @@
+p style="color: green" = notice
+
+h1 Dog sizes
+
+table
+  thead
+    tr
+      th Size
+      th Actions
+  tbody
+    - @dog_sizes.each do |dog_size|
+      tr
+        td = dog_size.size
+        td
+          = link_to "Edit", edit_dog_size_path(dog_size)
+          |  
+          = link_to "Show", dog_size
+
+= link_to "New dog size", new_dog_size_path

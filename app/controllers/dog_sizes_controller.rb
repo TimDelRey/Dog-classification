@@ -1,7 +1,6 @@
 class DogSizesController < ApplicationController
   before_action :set_dog_size, only: %i[ show edit update destroy ]
 
-  # GET /dog_sizes or /dog_sizes.json
   def index
     @dog_sizes = DogSize.all
   end
