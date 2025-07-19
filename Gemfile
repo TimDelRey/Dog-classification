@@ -36,6 +36,7 @@ group :development, :test do
   gem "byebug", platforms: %i[mri mingw x64_mingw]
   gem "listen", "~> 3.3"
   gem 'annotaterb'
+  gem 'rspec-rails'
 end
 
 group :development do
