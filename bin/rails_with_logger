@@ -1,0 +1,3 @@
+#!/usr/bin/env ruby
+require "logger"
+load Gem.bin_path("rails", "rails")
