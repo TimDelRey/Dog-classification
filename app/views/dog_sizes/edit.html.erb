@@ -1,10 +1,37 @@
-<h1>Editing dog size</h1>
+<%= form_with(model: dog_size, local: true, html: { multipart: true }) do |form| %>
+  <% if dog_size.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(dog_size.errors.count, "error") %> prohibited this dog_size from being saved:</h2>
+      <ul>
+        <% dog_size.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
 
-<%= render "form", dog_size: @dog_size %>
+  <div>
+    <%= form.label :size %>
+    <%= form.text_field :size %>
+  </div>
 
-<br>
+  <div>
+    <%= form.label :description %>
+    <%= form.text_area :description %>
+  </div>
 
-<div>
-  <%= link_to "Show this dog size", @dog_size %> |
-  <%= link_to "Back to dog sizes", dog_sizes_path %>
-</div>
+  <div>
+    <%= form.label :image %>
+    <%= form.file_field :image %>
+
+    <% if dog_size.image.attached? %>
+      <div>
+        <%= image_tag dog_size.image.variant(resize_to_limit: [300, 300]) %>
+      </div>
+    <% end %>
+  </div>
+
+  <div>
+    <%= form.submit %>
+  </div>
+<% end %>

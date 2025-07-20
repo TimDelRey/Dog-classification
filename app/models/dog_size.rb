@@ -10,4 +10,5 @@
 #
 class DogSize < ApplicationRecord
   has_many :breeds
+  has_one_attached :image
 end

@@ -30,6 +30,7 @@ gem 'bootsnap', require: false
 gem 'bigdecimal'
 gem 'mutex_m'
 gem 'slim-rails'
+gem 'image_processing', '~> 1.2'
 
 group :development, :test do
   gem 'rubocop-rails-omakase', require: false
