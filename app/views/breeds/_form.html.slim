@@ -1,0 +1,24 @@
+= form_with(model: [@breed.dog_size, @breed], local: true, html: { multipart: true }) do |form|
+  - if @breed.errors.any?
+    div style="color: red"
+      h2 = pluralize(@breed.errors.count, "error") + " prohibited this breed from being saved:"
+      ul
+        - @breed.errors.full_messages.each do |msg|
+          li = msg
+
+  div
+    = form.label :name
+    br
+    = form.text_field :name
+
+  div
+    = form.label :image
+    br
+    = form.file_field :image
+
+    - if @breed.image.attached?
+      p Текущее изображение:
+      = image_tag @breed.image.variant(resize_to_limit: [300, 300])
+
+  div
+    = form.submit

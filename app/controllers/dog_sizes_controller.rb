@@ -6,6 +6,7 @@ class DogSizesController < ApplicationController
   end
 
   def show
+    redirect_to dog_size_breeds_path(params[:id])
   end
 
   def new

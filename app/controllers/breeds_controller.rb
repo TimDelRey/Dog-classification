@@ -1,27 +1,27 @@
 class BreedsController < ApplicationController
-  before_action :set_breed, only: %i[ show edit update destroy ]
+  before_action :set_breed, only: %i[ update destroy ]
+  before_action :set_dog_size, only: %i[ index ]
 
-  # GET /breeds or /breeds.json
   def index
-    @breeds = Breed.all
+    @breeds = @dog_size.breeds
   end
 
-  # GET /breeds/1 or /breeds/1.json
   def show
+    @breed = Breed.find(params[:id])
   end
 
-  # GET /breeds/new
   def new
-    @breed = Breed.new
+    @dog_size = DogSize.find(params[:dog_size_id])
+    @breed = @dog_size.breeds.build
   end
 
-  # GET /breeds/1/edit
   def edit
+    @breed = Breed.find(params[:id])
   end
 
-  # POST /breeds or /breeds.json
   def create
-    @breed = Breed.new(breed_params)
+    @dog_size = DogSize.find(params[:dog_size_id])
+    @breed = @dog_size.breeds.build(breed_params)
 
     respond_to do |format|
       if @breed.save
@@ -34,7 +34,6 @@ class BreedsController < ApplicationController
     end
   end
 
-  # PATCH/PUT /breeds/1 or /breeds/1.json
   def update
     respond_to do |format|
       if @breed.update(breed_params)
@@ -47,12 +46,11 @@ class BreedsController < ApplicationController
     end
   end
 
-  # DELETE /breeds/1 or /breeds/1.json
   def destroy
     @breed.destroy
 
     respond_to do |format|
-      format.html { redirect_to breeds_path, status: :see_other, notice: "Breed was successfully destroyed." }
+      format.html { redirect_to dog_size_breeds_path(@breed.dog_size), notice: "Breed was successfully destroyed." }
       format.json { head :no_content }
     end
   end
@@ -61,10 +59,15 @@ class BreedsController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_breed
       @breed = Breed.find(params[:id])
+      
+    end
+
+    def set_dog_size
+      @dog_size = DogSize.find(params[:dog_size_id])
     end
 
     # Only allow a list of trusted parameters through.
     def breed_params
-      params.fetch(:breed, {})
+      params.require(:breed).permit(:name, :image)
     end
 end

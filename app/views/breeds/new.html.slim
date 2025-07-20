@@ -1,0 +1,8 @@
+h1 New breed
+
+= render "form", breed: @breed
+
+br
+
+div
+  = link_to "Back to breeds", dog_size_breeds_path(@breed.dog_size)
