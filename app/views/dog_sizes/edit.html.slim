@@ -1,0 +1,26 @@
+= form_with model: @dog_size, local: true, html: { multipart: true } do |form|
+  - if @dog_size.errors.any?
+    #error_explanation
+      h2= pluralize(@dog_size.errors.count, "error") + " prohibited this dog_size from being saved:"
+      ul
+        - @dog_size.errors.full_messages.each do |message|
+          li= message
+
+  div
+    = form.label :size
+    = form.text_field :size
+
+  div
+    = form.label :description
+    = form.text_area :description
+
+  div
+    = form.label :image
+    = form.file_field :image
+
+    - if @dog_size.image.attached?
+      div
+        = image_tag @dog_size.image.variant(resize_to_limit: [300, 300])
+
+  div
+    = form.submit

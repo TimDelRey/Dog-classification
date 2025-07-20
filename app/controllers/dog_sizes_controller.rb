@@ -5,20 +5,16 @@ class DogSizesController < ApplicationController
     @dog_sizes = DogSize.all
   end
 
-  # GET /dog_sizes/1 or /dog_sizes/1.json
   def show
   end
 
-  # GET /dog_sizes/new
   def new
     @dog_size = DogSize.new
   end
 
-  # GET /dog_sizes/1/edit
   def edit
   end
 
-  # POST /dog_sizes or /dog_sizes.json
   def create
     @dog_size = DogSize.new(dog_size_params)
 
@@ -33,7 +29,6 @@ class DogSizesController < ApplicationController
     end
   end
 
-  # PATCH/PUT /dog_sizes/1 or /dog_sizes/1.json
   def update
     respond_to do |format|
       if @dog_size.update(dog_size_params)
@@ -46,7 +41,6 @@ class DogSizesController < ApplicationController
     end
   end
 
-  # DELETE /dog_sizes/1 or /dog_sizes/1.json
   def destroy
     @dog_size.destroy
 
@@ -57,13 +51,12 @@ class DogSizesController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
     def set_dog_size
       @dog_size = DogSize.find(params[:id])
     end
 
-    # Only allow a list of trusted parameters through.
     def dog_size_params
-      params.fetch(:dog_size, {})
+      params.require(:dog_size).permit(:size, :description, :image)
     end
+
 end

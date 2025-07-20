@@ -1,10 +1,19 @@
-p style="color: green" = notice
+p style="color: green"
+  = notice
 
-p Size: #{@dog_size.size}
-p Description: #{@dog_size.description}
+- if @dog_size.image.attached?
+  = image_tag url_for(@dog_size.image.variant(resize_to_limit: [300, 300]))
+
+p
+  strong Size:
+  = @dog_size.size
+
+p
+  strong Description:
+  = @dog_size.description
 
 div
-  = link_to "Edit this dog size", edit_dog_size_path(@dog_size)
-  |  |
-  = link_to "Back to dog sizes", dog_sizes_path
+  = link_to "Edit", edit_dog_size_path(@dog_size)
+  |  
+  = link_to "Back", dog_sizes_path
   = button_to "Destroy this dog size", @dog_size, method: :delete
