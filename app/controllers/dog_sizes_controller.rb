@@ -13,8 +13,7 @@ class DogSizesController < ApplicationController
     @dog_size = DogSize.new
   end
 
-  def edit
-  end
+  def edit; end
 
   def create
     @dog_size = DogSize.new(dog_size_params)
@@ -59,5 +58,4 @@ class DogSizesController < ApplicationController
     def dog_size_params
       params.require(:dog_size).permit(:size, :description, :image)
     end
-
 end

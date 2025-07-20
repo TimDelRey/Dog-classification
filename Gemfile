@@ -39,6 +39,8 @@ group :development, :test do
   gem "listen", "~> 3.3"
   gem 'annotaterb'
   gem 'rspec-rails'
+  gem 'drb'
+  gem 'benchmark'
 end
 
 group :development do

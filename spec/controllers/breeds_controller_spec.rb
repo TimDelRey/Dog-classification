@@ -24,7 +24,6 @@ require 'rails_helper'
 # `rails-controller-testing` gem.
 
 RSpec.describe BreedsController, type: :controller do
-
   # This should return the minimal set of attributes required to create a valid
   # Breed. As you add validations to Breed, be sure to
   # adjust the attributes here as well.
@@ -52,7 +51,7 @@ RSpec.describe BreedsController, type: :controller do
   describe "GET #show" do
     it "returns a success response" do
       breed = Breed.create! valid_attributes
-      get :show, params: {id: breed.to_param}, session: valid_session
+      get :show, params: { id: breed.to_param }, session: valid_session
       expect(response).to be_successful
     end
   end
@@ -67,7 +66,7 @@ RSpec.describe BreedsController, type: :controller do
   describe "GET #edit" do
     it "returns a success response" do
       breed = Breed.create! valid_attributes
-      get :edit, params: {id: breed.to_param}, session: valid_session
+      get :edit, params: { id: breed.to_param }, session: valid_session
       expect(response).to be_successful
     end
   end
@@ -76,19 +75,19 @@ RSpec.describe BreedsController, type: :controller do
     context "with valid params" do
       it "creates a new Breed" do
         expect {
-          post :create, params: {breed: valid_attributes}, session: valid_session
+          post :create, params: { breed: valid_attributes }, session: valid_session
         }.to change(Breed, :count).by(1)
       end
 
       it "redirects to the created breed" do
-        post :create, params: {breed: valid_attributes}, session: valid_session
+        post :create, params: { breed: valid_attributes }, session: valid_session
         expect(response).to redirect_to(Breed.last)
       end
     end
 
     context "with invalid params" do
       it "renders a response with 422 status (i.e. to display the 'new' template)" do
-        post :create, params: {breed: invalid_attributes}, session: valid_session
+        post :create, params: { breed: invalid_attributes }, session: valid_session
         expect(response).to have_http_status(:unprocessable_entity)
       end
     end
@@ -102,14 +101,14 @@ RSpec.describe BreedsController, type: :controller do
 
       it "updates the requested breed" do
         breed = Breed.create! valid_attributes
-        put :update, params: {id: breed.to_param, breed: new_attributes}, session: valid_session
+        put :update, params: { id: breed.to_param, breed: new_attributes }, session: valid_session
         breed.reload
         skip("Add assertions for updated state")
       end
 
       it "redirects to the breed" do
         breed = Breed.create! valid_attributes
-        put :update, params: {id: breed.to_param, breed: new_attributes}, session: valid_session
+        put :update, params: { id: breed.to_param, breed: new_attributes }, session: valid_session
         expect(response).to redirect_to(breed)
       end
     end
@@ -117,7 +116,7 @@ RSpec.describe BreedsController, type: :controller do
     context "with invalid params" do
       it "renders a response with 422 status (i.e. to display the 'edit' template)" do
         breed = Breed.create! valid_attributes
-        put :update, params: {id: breed.to_param, breed: invalid_attributes}, session: valid_session
+        put :update, params: { id: breed.to_param, breed: invalid_attributes }, session: valid_session
         expect(response).to have_http_status(:unprocessable_entity)
       end
     end
@@ -127,15 +126,14 @@ RSpec.describe BreedsController, type: :controller do
     it "destroys the requested breed" do
       breed = Breed.create! valid_attributes
       expect {
-        delete :destroy, params: {id: breed.to_param}, session: valid_session
+        delete :destroy, params: { id: breed.to_param }, session: valid_session
       }.to change(Breed, :count).by(-1)
     end
 
     it "redirects to the breeds list" do
       breed = Breed.create! valid_attributes
-      delete :destroy, params: {id: breed.to_param}, session: valid_session
+      delete :destroy, params: { id: breed.to_param }, session: valid_session
       expect(response).to redirect_to(breeds_url)
     end
   end
-
 end

@@ -11,4 +11,6 @@
 class DogSize < ApplicationRecord
   has_many :breeds
   has_one_attached :image
+
+  validates :size, presence: true
 end

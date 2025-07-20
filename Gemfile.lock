@@ -73,6 +73,7 @@ GEM
       activesupport (>= 6.0.0)
     ast (2.4.3)
     base64 (0.3.0)
+    benchmark (0.4.1)
     bigdecimal (3.2.2)
     bindex (0.8.1)
     bootsnap (1.18.6)
@@ -92,6 +93,7 @@ GEM
     crass (1.0.6)
     date (3.4.1)
     diff-lcs (1.6.2)
+    drb (2.2.3)
     erubi (1.13.1)
     factory_bot (6.5.4)
       activesupport (>= 6.1.0)
@@ -337,10 +339,12 @@ PLATFORMS
 
 DEPENDENCIES
   annotaterb
+  benchmark
   bigdecimal
   bootsnap
   byebug
   capybara
+  drb
   factory_bot_rails
   image_processing (~> 1.2)
   importmap-rails

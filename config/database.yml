@@ -8,9 +8,12 @@ default: &default
   host: localhost
   username: tim
 
-
 development:
   <<: *default
   database: dog-classification_development
   host: localhost
   username: tim
+
+test:
+  <<: *default
+  database: dog_classification_test

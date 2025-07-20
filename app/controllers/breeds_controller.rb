@@ -1,26 +1,21 @@
 class BreedsController < ApplicationController
-  before_action :set_breed, only: %i[ update destroy ]
-  before_action :set_dog_size, only: %i[ index ]
+  before_action :set_breed, only: %i[ show edit update destroy ]
+  before_action :set_dog_size, only: %i[ index create ]
 
   def index
     @breeds = @dog_size.breeds
   end
 
-  def show
-    @breed = Breed.find(params[:id])
-  end
+  def show; end
 
   def new
     @dog_size = DogSize.find(params[:dog_size_id])
     @breed = @dog_size.breeds.build
   end
 
-  def edit
-    @breed = Breed.find(params[:id])
-  end
+  def edit; end
 
   def create
-    @dog_size = DogSize.find(params[:dog_size_id])
     @breed = @dog_size.breeds.build(breed_params)
 
     respond_to do |format|
@@ -56,17 +51,15 @@ class BreedsController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
+
     def set_breed
       @breed = Breed.find(params[:id])
-      
     end
 
     def set_dog_size
       @dog_size = DogSize.find(params[:dog_size_id])
     end
 
-    # Only allow a list of trusted parameters through.
     def breed_params
       params.require(:breed).permit(:name, :image)
     end
