@@ -1,0 +1,18 @@
+p.notice = notice
+
+= render @breed
+
+= link_to "Back to #{@breed.dog_size.size.downcase} dogs", dog_size_breeds_path(@breed.dog_size), class: "btn"
+
+table
+  tr
+    td
+      - if @breed.image.attached?
+        = image_tag url_for(@breed.image.variant(resize_to_limit: [300, 300]))
+    td
+      p
+        strong Breed name:
+        = @breed.name
+
+      div
+        = link_to "Edit", edit_breed_path(@breed), class: "btn"

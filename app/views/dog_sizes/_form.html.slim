@@ -1,0 +1,29 @@
+= form_with(model: @dog_size, local: true, html: { multipart: true }) do |form|
+  - if @dog_size.errors.any?
+    #error_explanation style="color: red"
+      h2 = pluralize(@dog_size.errors.count, "error")
+      ul
+        - @dog_size.errors.full_messages.each do |message|
+          li = message
+
+  div
+    = form.label :size
+    br
+    = form.text_field :size
+
+  div
+    = form.label :description
+    br
+    = form.text_area :description
+
+  div
+    = form.label :image
+    br
+    = form.file_field :image
+
+    - if @dog_size.image.attached?
+      p Текущее изображение:
+      = image_tag @dog_size.image.variant(resize_to_limit: [300, 300])
+
+  div
+    = form.submit class: "btn"

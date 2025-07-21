@@ -6,10 +6,21 @@
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
-    <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
+    <%= stylesheet_link_tag "application", "style", "data-turbo-track": "reload" %>
+    <%= javascript_importmap_tags %>
   </head>
 
   <body>
-    <%= yield %>
+    <header>
+      <h1><%= link_to "Dogs", root_path %></h1>
+    </header>
+
+    <main class="container">
+      <%= yield %>
+    </main>
+
+    <footer style="text-align: center; padding: 1rem 0;">
+      &copy; <%= Date.today.year %> DogClassification Project
+    </footer>
   </body>
 </html>

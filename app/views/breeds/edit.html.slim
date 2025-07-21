@@ -1,0 +1,6 @@
+h1 Editing breed
+
+div
+  = link_to "Back", dog_size_breeds_path(@breed.dog_size), class: "btn"
+
+= render "form", breed: @breed

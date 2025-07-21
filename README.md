@@ -1,25 +1,8 @@
-# README
+### Hi. It's project about dogs
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
-
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
-# Dog-classification
+Here you can:
+- see the classification of dogs by size;
+- learn more about dog size categories;
+- learn what dog breeds are big and what are small;
+- add, edit and delete breeds;
+- ✨ **choose a random dog from those existing in the project** ✨
