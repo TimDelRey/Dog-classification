@@ -13,7 +13,10 @@ class BreedsController < ApplicationController
     @breed = @dog_size.breeds.build
   end
 
-  def edit; end
+  def edit
+    @breed = Breed.find(params[:id])
+    @dog_size = @breed.dog_size
+  end 
 
   def create
     @breed = @dog_size.breeds.build(breed_params)

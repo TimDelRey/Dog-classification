@@ -1,9 +1,7 @@
 = form_with(model: @dog_size, local: true, html: { multipart: true }) do |form|
   - if @dog_size.errors.any?
     #error_explanation style="color: red"
-      h2
-        = pluralize(@dog_size.errors.count, "error")
-        |  prohibited this dog size from being saved:
+      h2 = pluralize(@dog_size.errors.count, "error")
       ul
         - @dog_size.errors.full_messages.each do |message|
           li = message

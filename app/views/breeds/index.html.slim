@@ -22,7 +22,7 @@ table
       div
         .actions
           = link_to "Edit", edit_dog_size_path(@dog_size), class: "btn"
-          = button_to "Destroy this dog size", @dog_size, method: :delete, class: "btn", data: { confirm: "Are you sure you want to delete this dog size?" }
+          = button_to "Delete", @dog_size, method: :delete, class: "btn", data: { confirm: 'Are you sure you want to delete this dog size?' }
 
 table
   thead
@@ -36,4 +36,4 @@ table
         td
           .actions
             = link_to "Edit", edit_breed_path(breed), class: "btn"
-            = button_to "Destroy this breed", breed, method: :delete, class: "btn", data: { confirm: "Are you sure you want to delete this breed?" }
+            = button_to "Delete", breed, method: :delete, class: "btn", data: { confirm: 'Are you sure you want to delete this breed?' }
