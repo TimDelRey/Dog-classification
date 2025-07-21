@@ -1,15 +1,16 @@
 p style="color: green" = notice
 
-h1 Choise category
-= link_to "New dog size", new_dog_size_path
+h1 Choose Category
+= link_to "New Dog Size", new_dog_size_path
+button data-controller="random-breed" data-action="click->random-breed#load" Choice your dog
 
-table
-  thead
-  tbody
+div#random-breed-container
+
+.container
+  .grid
     - @dog_sizes.each do |dog_size|
-      div
-        tr
-          - if dog_size.image.attached?
-            = image_tag url_for(dog_size.image.variant(resize_to_limit: [300, 300]))
-        tr
-          = link_to dog_size.size, dog_size
+      .card data-controller="dog-card" data-action="click->dog-card#choiceSize"
+        - if dog_size.image.attached?
+          = image_tag url_for(dog_size.image.variant(resize_to_limit: [300, 300])), alt: dog_size.size
+        .card-title
+          = link_to dog_size.size, dog_size, data: { "dog-card-target": "link" }

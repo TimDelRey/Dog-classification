@@ -50,6 +50,16 @@ class BreedsController < ApplicationController
     end
   end
 
+  def random
+    breed = Breed.order("RANDOM()").first
+
+    render json: {
+      id: breed.id,
+      name: breed.name,
+      image_url: breed.image.attached? ? url_for(breed.image.variant(resize_to_limit: [300, 300])) : nil
+    }
+  end
+
   private
 
     def set_breed
