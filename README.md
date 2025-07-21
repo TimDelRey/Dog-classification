@@ -6,3 +6,13 @@ Here you can:
 - learn what dog breeds are big and what are small;
 - add, edit and delete breeds;
 - ✨ **choose a random dog from those existing in the project** ✨
+
+### Installing
+
+```bash
+git clone git@github.com:TimDelRey/Dog-classification.git
+cd Dog-classification
+bundle install
+rails db:create
+rails db:seed
+```
