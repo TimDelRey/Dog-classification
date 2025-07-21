@@ -2,7 +2,7 @@ p style="color: green" = notice
 
 = render @breed
 
-= link_to "Back", dog_size_breeds_path(@breed.dog_size)
+= link_to "Back", dog_size_breeds_path(@breed.dog_size), class: "btn"
 
 table
   tr
@@ -15,5 +15,5 @@ table
         = @breed.name
 
       div
-        = link_to "Edit", edit_breed_path(@breed)
+        = link_to "Edit", edit_breed_path(@breed), class: "btn"
         

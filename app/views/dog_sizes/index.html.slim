@@ -1,10 +1,12 @@
-p style="color: green" = notice
+p.notice = notice
 
 h1 Choose Category
-= link_to "New Dog Size", new_dog_size_path
-button data-controller="random-breed" data-action="click->random-breed#load" Choice your dog
 
-div#random-breed-container
+= link_to "New Dog Size", new_dog_size_path, class: "btn"
+
+button.btn data-controller="random-breed" data-action="click->random-breed#load" Choice your dog
+
+#random-breed-container
 
 .container
   .grid
@@ -13,4 +15,4 @@ div#random-breed-container
         - if dog_size.image.attached?
           = image_tag url_for(dog_size.image.variant(resize_to_limit: [300, 300])), alt: dog_size.size
         .card-title
-          = link_to dog_size.size, dog_size, data: { "dog-card-target": "link" }
+          = link_to dog_size.size, dog_size, class: "btn", data: { "dog-card-target": "link" }

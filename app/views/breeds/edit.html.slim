@@ -1,7 +1,7 @@
 h1 Editing breed
 
 div
-  = link_to "Back", dog_size_breeds_path(@breed.dog_size)
+  = link_to "Back", dog_size_breeds_path(@breed.dog_size), class: "btn"
 
 = form_with(model: @breed, local: true, html: { multipart: true }) do |form|
   - if @breed.errors.any?
@@ -27,4 +27,4 @@ div
       = image_tag @breed.image.variant(resize_to_limit: [300, 300])
 
   div
-    = form.submit "Update Breed"
+    = form.submit "Update Breed", class: "btn"

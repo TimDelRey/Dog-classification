@@ -2,7 +2,8 @@ p style="color: green" = notice
 
 h1 = "#{@dog_size.size} breeds"
 
-= link_to "Back", dog_sizes_path
+= link_to "Back", dog_sizes_path, class: "btn"
+= link_to "New breed", new_dog_size_breed_path(@dog_size), class: "btn"
 
 table
   tr
@@ -19,8 +20,8 @@ table
         = @dog_size.description
 
       div
-        = link_to "Edit", edit_dog_size_path(@dog_size)
-        = button_to "Destroy this dog size", @dog_size, method: :delete, data: { confirm: "Are you sure you want to delete this dog size?" }
+        = link_to "Edit", edit_dog_size_path(@dog_size), class: "btn"
+        = button_to "Destroy this dog size", @dog_size, method: :delete, class: "btn", data: { confirm: "Are you sure you want to delete this dog size?" }
 
 table
   thead
@@ -32,7 +33,5 @@ table
       tr
         td = link_to breed.name, breed
         td
-          = link_to "Edit", edit_breed_path(breed)
-          = button_to "Destroy this breed", [breed], method: :delete, data: { confirm: "Are you sure you want to delete this dog size?" }
-
-= link_to "New breed", new_dog_size_breed_path(@dog_size)
+          = link_to "Edit", edit_breed_path(breed), class: "btn"
+          = button_to "Destroy this breed", [breed], method: :delete, class: "btn", data: { confirm: "Are you sure you want to delete this dog size?" }
