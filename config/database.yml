@@ -17,3 +17,4 @@ development:
 test:
   <<: *default
   database: dog_classification_test
+  
